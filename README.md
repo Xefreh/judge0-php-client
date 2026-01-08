@@ -5,7 +5,7 @@ programming languages.
 
 ## Requirements
 
-- PHP 8.1 or higher
+- PHP 8.4 or higher
 - Composer
 
 ## Installation

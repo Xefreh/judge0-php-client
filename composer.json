@@ -4,6 +4,7 @@
   "type": "library",
   "license": "MIT",
   "require": {
+    "php": "^8.4",
     "guzzlehttp/guzzle": "^7.10"
   },
   "require-dev": {
