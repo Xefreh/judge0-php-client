@@ -1,0 +1,11 @@
+/vendor/
+.phpunit.cache/
+.idea/
+.mcp.json
+.env
+.env.*
+!.env.example
+CLAUDE.md
+.claude/
+.DS_Store
+*.log
