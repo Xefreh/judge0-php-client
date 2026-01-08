@@ -1,0 +1,33 @@
+{
+    "name": "xefreh/judge0-php-client",
+    "description": "PHP Client for Judge0 API",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xefreh\\Judge0PhpClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xefreh\\Judge0PhpClient\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite=Unit",
+        "test:integration": "phpunit --testsuite=Integration"
+    },
+    "authors": [
+        {
+            "name": "Xefreh",
+            "email": "william.strainchamps@gmail.com"
+        }
+    ]
+}
