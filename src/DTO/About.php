@@ -11,7 +11,8 @@ readonly class About
         public string $homepage,
         public string $sourceCode,
         public string $maintainer,
-    ) {
+    )
+    {
     }
 
     public static function fromArray(array $data): self

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Xefreh\Judge0PhpClient\Resources;
 
-use Xefreh\Judge0PhpClient\DTO\Status;
 use Xefreh\Judge0PhpClient\DTO\Submission;
 use Xefreh\Judge0PhpClient\DTO\SubmissionResult;
 use Xefreh\Judge0PhpClient\Exceptions\ApiException;
@@ -16,7 +15,8 @@ class Submissions
 
     public function __construct(
         private readonly HttpClient $http,
-    ) {
+    )
+    {
     }
 
     /**

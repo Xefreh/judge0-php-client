@@ -1,6 +1,7 @@
 # Judge0 PHP Client
 
-A PHP client library for the [Judge0](https://judge0.com) API - an online code execution system that supports 60+ programming languages.
+A PHP client library for the [Judge0](https://judge0.com) API - an online code execution system that supports 60+
+programming languages.
 
 ## Requirements
 
@@ -40,12 +41,12 @@ echo $final->stdout; // "Hello, World!"
 
 ### Constructor Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `apiHost` | string | Yes | Judge0 API host (e.g., `judge0-ce.p.rapidapi.com`) |
-| `apiKey` | string | No* | API key for authentication |
-| `cache` | CacheInterface | No | Cache instance for reducing API calls |
-| `environment` | Environment | No | `Development` (default) or `Production` |
+| Parameter     | Type           | Required | Description                                        |
+|---------------|----------------|----------|----------------------------------------------------|
+| `apiHost`     | string         | Yes      | Judge0 API host (e.g., `judge0-ce.p.rapidapi.com`) |
+| `apiKey`      | string         | No*      | API key for authentication                         |
+| `cache`       | CacheInterface | No       | Cache instance for reducing API calls              |
+| `environment` | Environment    | No       | `Development` (default) or `Production`            |
 
 *API key is required when `environment` is set to `Production`.
 
@@ -86,6 +87,7 @@ $client->clearCache();
 ```
 
 **Cache TTLs:**
+
 - Languages & Statuses: 24 hours
 - About & Config: 1 hour
 - Completed submission results: 24 hours
@@ -192,17 +194,17 @@ $statuses = $client->system->statuses();
 
 Common language IDs:
 
-| ID | Language |
-|----|----------|
-| 50 | C (GCC 9.2.0) |
-| 54 | C++ (GCC 9.2.0) |
-| 62 | Java (OpenJDK 13.0.1) |
+| ID | Language                     |
+|----|------------------------------|
+| 50 | C (GCC 9.2.0)                |
+| 54 | C++ (GCC 9.2.0)              |
+| 62 | Java (OpenJDK 13.0.1)        |
 | 63 | JavaScript (Node.js 12.14.0) |
-| 71 | Python (3.8.1) |
-| 72 | Ruby (2.7.0) |
-| 73 | Rust (1.40.0) |
-| 74 | TypeScript (3.7.4) |
-| 82 | SQL (SQLite 3.27.2) |
+| 71 | Python (3.8.1)               |
+| 72 | Ruby (2.7.0)                 |
+| 73 | Rust (1.40.0)                |
+| 74 | TypeScript (3.7.4)           |
+| 82 | SQL (SQLite 3.27.2)          |
 
 Use `$client->languages->all()` to get the full list.
 

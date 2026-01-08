@@ -18,7 +18,8 @@ class System
 
     public function __construct(
         private readonly HttpClient $http,
-    ) {
+    )
+    {
     }
 
     /**

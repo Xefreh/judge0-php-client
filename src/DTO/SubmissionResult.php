@@ -7,20 +7,21 @@ namespace Xefreh\Judge0PhpClient\DTO;
 readonly class SubmissionResult
 {
     public function __construct(
-        public string $token,
+        public string  $token,
         public ?Status $status = null,
         public ?string $stdout = null,
         public ?string $stderr = null,
         public ?string $compileOutput = null,
         public ?string $message = null,
-        public ?float $time = null,
-        public ?int $memory = null,
-        public ?float $wallTime = null,
-        public ?int $exitCode = null,
-        public ?int $exitSignal = null,
+        public ?float  $time = null,
+        public ?int    $memory = null,
+        public ?float  $wallTime = null,
+        public ?int    $exitCode = null,
+        public ?int    $exitSignal = null,
         public ?string $createdAt = null,
         public ?string $finishedAt = null,
-    ) {
+    )
+    {
     }
 
     public static function fromArray(array $data, bool $base64Encoded = true): self
@@ -37,11 +38,11 @@ readonly class SubmissionResult
             stderr: self::decodeIfNeeded($data['stderr'] ?? null, $base64Encoded),
             compileOutput: self::decodeIfNeeded($data['compile_output'] ?? null, $base64Encoded),
             message: $data['message'] ?? null,
-            time: isset($data['time']) ? (float) $data['time'] : null,
-            memory: isset($data['memory']) ? (int) $data['memory'] : null,
-            wallTime: isset($data['wall_time']) ? (float) $data['wall_time'] : null,
-            exitCode: isset($data['exit_code']) ? (int) $data['exit_code'] : null,
-            exitSignal: isset($data['exit_signal']) ? (int) $data['exit_signal'] : null,
+            time: isset($data['time']) ? (float)$data['time'] : null,
+            memory: isset($data['memory']) ? (int)$data['memory'] : null,
+            wallTime: isset($data['wall_time']) ? (float)$data['wall_time'] : null,
+            exitCode: isset($data['exit_code']) ? (int)$data['exit_code'] : null,
+            exitSignal: isset($data['exit_signal']) ? (int)$data['exit_signal'] : null,
             createdAt: $data['created_at'] ?? null,
             finishedAt: $data['finished_at'] ?? null,
         );

@@ -14,10 +14,11 @@ class HttpClient
     private Client $client;
 
     public function __construct(
-        private readonly string $apiHost,
-        private readonly ?string $apiKey = null,
+        private readonly string          $apiHost,
+        private readonly ?string         $apiKey = null,
         private readonly ?CacheInterface $cache = null,
-    ) {
+    )
+    {
         $headers = [
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',

@@ -14,7 +14,8 @@ class Languages
 
     public function __construct(
         private readonly HttpClient $http,
-    ) {
+    )
+    {
     }
 
     /**

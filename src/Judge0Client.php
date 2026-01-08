@@ -23,11 +23,12 @@ class Judge0Client
      * @throws ConfigException
      */
     public function __construct(
-        ?string $apiHost = null,
-        ?string $apiKey = null,
+        ?string         $apiHost = null,
+        ?string         $apiKey = null,
         ?CacheInterface $cache = null,
-        Environment $environment = Environment::Development,
-    ) {
+        Environment     $environment = Environment::Development,
+    )
+    {
         $this->validateConfiguration($apiHost, $apiKey, $environment);
 
         $this->http = new HttpClient($apiHost, $apiKey, $cache);

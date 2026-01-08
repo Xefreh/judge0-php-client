@@ -7,20 +7,21 @@ namespace Xefreh\Judge0PhpClient\DTO;
 readonly class Submission
 {
     public function __construct(
-        public int $languageId,
-        public string $sourceCode,
+        public int     $languageId,
+        public string  $sourceCode,
         public ?string $stdin = null,
         public ?string $expectedOutput = null,
-        public ?float $cpuTimeLimit = null,
-        public ?float $cpuExtraTime = null,
-        public ?float $wallTimeLimit = null,
-        public ?int $memoryLimit = null,
-        public ?int $stackLimit = null,
+        public ?float  $cpuTimeLimit = null,
+        public ?float  $cpuExtraTime = null,
+        public ?float  $wallTimeLimit = null,
+        public ?int    $memoryLimit = null,
+        public ?int    $stackLimit = null,
         public ?string $compilerOptions = null,
         public ?string $commandLineArguments = null,
         public ?string $callbackUrl = null,
-        public ?bool $redirectStderrToStdout = null,
-    ) {
+        public ?bool   $redirectStderrToStdout = null,
+    )
+    {
     }
 
     public function toArray(bool $base64Encode = true): array

@@ -7,9 +7,10 @@ namespace Xefreh\Judge0PhpClient\DTO;
 readonly class Language
 {
     public function __construct(
-        public int $id,
+        public int    $id,
         public string $name,
-    ) {
+    )
+    {
     }
 
     public static function fromArray(array $data): self

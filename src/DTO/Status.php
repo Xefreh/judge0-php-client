@@ -22,9 +22,10 @@ readonly class Status
     public const EXEC_FORMAT_ERROR = 14;
 
     public function __construct(
-        public int $id,
+        public int    $id,
         public string $description,
-    ) {
+    )
+    {
     }
 
     public static function fromArray(array $data): self
