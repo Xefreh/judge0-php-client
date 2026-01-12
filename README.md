@@ -41,33 +41,11 @@ echo $final->stdout; // "Hello, World!"
 
 ### Constructor Parameters
 
-| Parameter     | Type           | Required | Description                                        |
-|---------------|----------------|----------|----------------------------------------------------|
-| `apiHost`     | string         | Yes      | Judge0 API host (e.g., `judge0-ce.p.rapidapi.com`) |
-| `apiKey`      | string         | No*      | API key for authentication                         |
-| `cache`       | CacheInterface | No       | Cache instance for reducing API calls              |
-| `environment` | Environment    | No       | `Development` (default) or `Production`            |
-
-*API key is required when `environment` is set to `Production`.
-
-### Environment Modes
-
-```php
-use Xefreh\Judge0PhpClient\Enums\Environment;
-
-// Development (default) - API key is optional
-$client = new Judge0Client(
-    apiHost: 'judge0-ce.p.rapidapi.com',
-    environment: Environment::Development,
-);
-
-// Production - API key is required, throws ConfigException if missing
-$client = new Judge0Client(
-    apiHost: 'judge0-ce.p.rapidapi.com',
-    apiKey: 'your-api-key',
-    environment: Environment::Production,
-);
-```
+| Parameter | Type           | Required | Description                                        |
+|-----------|----------------|----------|----------------------------------------------------|
+| `apiHost` | string         | Yes      | Judge0 API host (e.g., `judge0-ce.p.rapidapi.com`) |
+| `apiKey`  | string         | Yes      | API key for authentication                         |
+| `cache`   | CacheInterface | No       | Cache instance for reducing API calls              |
 
 ### Caching
 
