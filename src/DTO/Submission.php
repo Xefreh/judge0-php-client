@@ -8,7 +8,7 @@ readonly class Submission
 {
     public function __construct(
         public int     $languageId,
-        public ?string  $sourceCode = null,
+        public ?string $sourceCode = null,
         public ?string $stdin = null,
         public ?string $expectedOutput = null,
         public ?float  $cpuTimeLimit = null,
@@ -21,6 +21,7 @@ readonly class Submission
         public ?string $callbackUrl = null,
         public ?bool   $redirectStderrToStdout = null,
         public ?string $additional_files = null,
+        public ?bool   $enable_network = null,
     )
     {
     }
@@ -85,6 +86,10 @@ readonly class Submission
 
         if ($this->additional_files !== null) {
             $data['additional_files'] = $this->additional_files;
+        }
+
+        if ($this->enable_network !== null) {
+            $data['enable_network'] = $this->enable_network;
         }
 
         return $data;
