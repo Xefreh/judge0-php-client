@@ -11,7 +11,7 @@ use Xefreh\Judge0PhpClient\Http\HttpClient;
 
 class Submissions
 {
-    private const FINAL_RESULT_CACHE_TTL = 86400; // 24 hours for final results
+    private const int FINAL_RESULT_CACHE_TTL = 86400; // 24 hours for final results
 
     public function __construct(
         private readonly HttpClient $http,

@@ -10,7 +10,7 @@ use Xefreh\Judge0PhpClient\Http\HttpClient;
 
 class Languages
 {
-    private const CACHE_TTL = 86400; // 24 hours
+    private const int CACHE_TTL = 86400; // 24 hours
 
     public function __construct(
         private readonly HttpClient $http,

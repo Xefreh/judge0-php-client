@@ -12,9 +12,9 @@ use Xefreh\Judge0PhpClient\Http\HttpClient;
 
 class System
 {
-    private const ABOUT_CACHE_TTL = 3600; // 1 hour
-    private const CONFIG_CACHE_TTL = 3600; // 1 hour
-    private const STATUSES_CACHE_TTL = 86400; // 24 hours
+    private const int ABOUT_CACHE_TTL = 3600; // 1 hour
+    private const int CONFIG_CACHE_TTL = 3600; // 1 hour
+    private const int STATUSES_CACHE_TTL = 86400; // 24 hours
 
     public function __construct(
         private readonly HttpClient $http,

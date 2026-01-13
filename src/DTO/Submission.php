@@ -8,7 +8,7 @@ readonly class Submission
 {
     public function __construct(
         public int     $languageId,
-        public string  $sourceCode,
+        public ?string  $sourceCode = null,
         public ?string $stdin = null,
         public ?string $expectedOutput = null,
         public ?float  $cpuTimeLimit = null,
@@ -20,16 +20,24 @@ readonly class Submission
         public ?string $commandLineArguments = null,
         public ?string $callbackUrl = null,
         public ?bool   $redirectStderrToStdout = null,
+        public ?string $additional_files = null,
     )
     {
     }
 
     public function toArray(bool $base64Encode = true): array
     {
+        if ($this->sourceCode !== null && $this->additional_files !== null) {
+            throw new \InvalidArgumentException('sourceCode and additional_files cannot be set simultaneously');
+        }
+
         $data = [
             'language_id' => $this->languageId,
-            'source_code' => $base64Encode ? base64_encode($this->sourceCode) : $this->sourceCode,
         ];
+
+        if ($this->sourceCode !== null) {
+            $data['source_code'] = $base64Encode ? base64_encode($this->sourceCode) : $this->sourceCode;
+        }
 
         if ($this->stdin !== null) {
             $data['stdin'] = $base64Encode ? base64_encode($this->stdin) : $this->stdin;
@@ -73,6 +81,10 @@ readonly class Submission
 
         if ($this->redirectStderrToStdout !== null) {
             $data['redirect_stderr_to_stdout'] = $this->redirectStderrToStdout;
+        }
+
+        if ($this->additional_files !== null) {
+            $data['additional_files'] = $this->additional_files;
         }
 
         return $data;

@@ -7,6 +7,7 @@ programming languages.
 
 - PHP 8.4 or higher
 - Composer
+- ext-zip (for multi-file submissions)
 
 ## Installation
 
@@ -131,6 +132,49 @@ $submission = new Submission(
     redirectStderrToStdout: false,
 );
 ```
+
+### Multi-file Programs
+
+For projects with multiple files (e.g., C++ with CMake), use the `ArchiveBuilder` utility to create a base64-encoded zip archive:
+
+```php
+use Xefreh\Judge0PhpClient\Utils\ArchiveBuilder;
+use Xefreh\Judge0PhpClient\DTO\Submission;
+
+// From string contents
+$archive = ArchiveBuilder::createArchive(
+    files: [
+        'main.cpp' => '#include <iostream>\nint main() { std::cout << "Hello"; }',
+        'CMakeLists.txt' => 'cmake_minimum_required(VERSION 3.10)...',
+    ],
+    runScript: "#!/bin/bash\n./build/main",
+    compileScript: "#!/bin/bash\nmkdir build && cd build && cmake .. && make",
+);
+
+// Or from file paths on disk
+$archive = ArchiveBuilder::createArchiveFromFiles(
+    files: [
+        'main.cpp' => '/path/to/project/main.cpp',
+        'utils/helper.cpp' => '/path/to/project/utils/helper.cpp',
+        'CMakeLists.txt' => '/path/to/project/CMakeLists.txt',
+    ],
+    runScript: "#!/bin/bash\n./build/main",
+    compileScript: "#!/bin/bash\nmkdir build && cd build && cmake .. && make",
+);
+
+$submission = new Submission(
+    languageId: 54, // C++ (GCC)
+    additionalFiles: $archive,
+);
+
+$result = $client->submissions->create($submission, wait: true);
+```
+
+**Notes:**
+- The `run` script is required and tells Judge0 how to execute your program
+- The `compile` script is optional (omit for interpreted languages)
+- Both scripts must be valid bash scripts
+- The archive key defines the relative path inside the sandbox (e.g., `utils/helper.cpp`)
 
 ### Submission Result
 
